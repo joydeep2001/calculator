@@ -52,7 +52,7 @@ class PosixCreator {
                     } else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'H') {
                         stack.push(val);
                     } else {
-                        if(operatorsCharacteristics.checkAssociativity(val)=='R')
+                            if(operatorsCharacteristics.checkAssociativity(val)=='R')
                         {
                             stack.push(val);
                         }

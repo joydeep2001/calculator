@@ -11,13 +11,21 @@ public class Main {
         ArrayList<Character> inputs = new ArrayList<Character>();
         inputs.add('2');
         inputs.add('.');
-        inputs.add('3');
+        inputs.add('5');
         inputs.add('+');
-        inputs.add('2');
-        inputs.add('4');
+        inputs.add('3');
         inputs.add('*');
+        inputs.add('4');
+        inputs.add('^');
         inputs.add('2');
-        inputs.add('2');
+        inputs.add('^');
+        inputs.add('3');
+        inputs.add('*');
+        inputs.add('3');
+        inputs.add('3');
+        inputs.add('/');
+        inputs.add('4');
+        inputs.add('3');
 //        inputs.add("2");
 ////        inputs.add(".");
 //        inputs.add("5");
@@ -39,6 +47,8 @@ public class Main {
         }
         System.out.println();
 
+        System.out.println("the infix");
+
         InfixCrater infixCrater=new InfixCrater();
         infixCrater.setInputArray(inputs);
         ArrayList<String> list=infixCrater.infixGen();
@@ -48,14 +58,16 @@ public class Main {
         }
 
 
-
+        System.out.println("the post fix");
         PosixCreator posixCreator=new PosixCreator();
         posixCreator.setInfix(list);
         ArrayList<String> postfix = posixCreator.postfixGen();
 
         for (String val : postfix) {
-            System.out.println(val);
+            System.out.print(val);
         }
+        System.out.println();
+
 
         OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
 

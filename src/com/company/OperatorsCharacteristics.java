@@ -60,7 +60,6 @@ public class OperatorsCharacteristics {
             return false;
         }
         else if(strNum.equals(".")){
-            System.out.println("point ditected");
             return true;
         }
         try {
@@ -81,7 +80,6 @@ public class OperatorsCharacteristics {
         int size=postfix.size();
 
         for (i=0;i<size;i++) {
-            System.out.println(postfix.get(i));
             if(isNumeric(postfix.get(i))){
                 stack.push(postfix.get(i));
             }
@@ -125,7 +123,6 @@ public class OperatorsCharacteristics {
                 System.out.println("Exception");
                 break;
         }
-
 
         return String.valueOf(result);
 

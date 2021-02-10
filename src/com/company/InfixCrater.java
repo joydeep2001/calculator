@@ -34,7 +34,6 @@ public class InfixCrater {
         OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
 
         for (i = 0; i < characterArrayList.size(); i++) {
-            System.out.println("out output" +Character.toString(characterArrayList.get(i)));
             if (operatorsCharacteristics.isNumeric(Character.toString(characterArrayList.get(i)))) {
                 s.append(characterArrayList.get(i));
 

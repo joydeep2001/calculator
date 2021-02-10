@@ -40,7 +40,7 @@ public class InfixCrater {
             }
             //if a bracket detected
             else if(characterArrayList.get(i) != '(' || characterArrayList.get(i) != ')'){
-                //if s.lenght is non zero then there must be a number in it,
+                //if s.length is non zero then there must be a number in it,
                 // so add it first into infix
                 if(s.length() != 0){
                     infix.add(s.toString());

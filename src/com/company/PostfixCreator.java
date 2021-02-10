@@ -53,7 +53,6 @@ class PosixCreator {
                     else if(val.equals(")")){
                         System.out.println("here");
                         //adding the content up to opening bracket found
-//                        for(String temp = stack.pop();!temp.equals("(");postfix.add(temp));
                         while (!stack.peek().equals("(")){
                             String temp = stack.pop();
                             postfix.add(temp);

@@ -25,6 +25,7 @@ public class OperatorsCharacteristics {
         precedence_Map.put("*", 2);
         precedence_Map.put("-", 1);
         precedence_Map.put("+", 1);
+        precedence_Map.put("(", 0);
 
 
         //For Associativity Map Initialization

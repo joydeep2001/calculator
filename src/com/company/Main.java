@@ -18,11 +18,17 @@ public class Main {
         inputs.add('4');
         inputs.add('^');
         inputs.add('2');
-        inputs.add('^');
+        inputs.add('+');
         inputs.add('(');
         inputs.add('3');
         inputs.add('*');
         inputs.add('2');
+        inputs.add('*');
+        inputs.add('(');
+        inputs.add('5');
+        inputs.add('*');
+        inputs.add('2');
+        inputs.add(')');
         inputs.add(')');
         inputs.add('/');
         inputs.add('4');
@@ -50,9 +56,9 @@ public class Main {
             System.out.println(val);
         }
 
-
+//POSTFIX
         System.out.println("the post fix");
-        PosixCreator posixCreator=new PosixCreator();
+        PosixCreator posixCreator = new PosixCreator();
         posixCreator.setInfix(list);
         ArrayList<String> postfix = posixCreator.postfixGen();
 
@@ -62,10 +68,10 @@ public class Main {
         System.out.println();
 //
 
-//        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
-//
-//
-//        System.out.println(operatorsCharacteristics.evaluate(postfix));
+        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
+
+
+        System.out.println(operatorsCharacteristics.evaluate(postfix));
 
 
     }

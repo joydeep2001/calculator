@@ -34,12 +34,13 @@ class PosixCreator {
     /*-------Methods---------*/
 
     public ArrayList<String> postfixGen() {
+        String val;
 
-
-        for (String val : infix) {
-
+        for (int i = 0;i < infix.size();i++) {
+            val = infix.get(i);
+            if(val.isEmpty()) continue;
+            System.out.println("val "+val);
             if (operatorsCharacteristics.isNumeric(val)) {
-
                 postfix.add(val);
             } else {
 
@@ -47,11 +48,24 @@ class PosixCreator {
                     stack.push(val);
                 } else {
 
+                    if(val.equals("(")){
+                        stack.push(val);
+                    }
+                    else if(val.equals(")")){
+                        System.out.println("here");
+                        //adding the content up to opening bracket found
+//                        for(String temp = stack.pop();!temp.equals("(");postfix.add(temp));
+                        while (!stack.peek().equals("(")){
+                            String temp = stack.pop();
+                            postfix.add(temp);
+                        }
+                        //for removing the "(" from the stack
+                        stack.pop();
+                    }
 
-                    if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
+                    else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
+
                         move_operators_to_postfix_until_lower_precidence_occur(val);
-//                        String x = stack.pop();
-//                        postfix.add(x);
                         stack.push(val);
                     } else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'H') {
                         stack.push(val);

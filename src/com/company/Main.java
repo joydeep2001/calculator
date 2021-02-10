@@ -19,12 +19,11 @@ public class Main {
         inputs.add('^');
         inputs.add('2');
         inputs.add('^');
-//        inputs.add('(');
+        inputs.add('(');
         inputs.add('3');
         inputs.add('*');
         inputs.add('3');
-//        inputs.add(')');
-        inputs.add('3');
+        inputs.add(')');
         inputs.add('/');
         inputs.add('4');
         inputs.add('3');
@@ -63,10 +62,10 @@ public class Main {
         System.out.println();
 //
 
-        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
-
-
-        System.out.println(operatorsCharacteristics.evaluate(postfix));
+//        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
+//
+//
+//        System.out.println(operatorsCharacteristics.evaluate(postfix));
 
 
     }

@@ -19,13 +19,13 @@ public class OperatorsCharacteristics {
     private void createMaps() {
 
         //For Precedence Map Initialization
-        precedence_Map.put("(", 4);
+
         precedence_Map.put("^", 3);
         precedence_Map.put("/", 2);
         precedence_Map.put("*", 2);
         precedence_Map.put("-", 1);
         precedence_Map.put("+", 1);
-        precedence_Map.put(")", 0);
+
 
         //For Associativity Map Initialization
         //'R' for RIGHT TO LEFT and 'L' for LEFT TO RIGHT
@@ -38,6 +38,7 @@ public class OperatorsCharacteristics {
 
     /*-----Checks Precedence------*/
     public char checkPrecedence(String input, String stack_top) {
+
         int p1 = precedence_Map.get(input);
         int p2 = precedence_Map.get(stack_top);
 
@@ -58,7 +59,7 @@ public class OperatorsCharacteristics {
     /*-----Checks String is Numeric or Not--*/
 
     public boolean isNumeric(String strNum) {
-        if (strNum == null) {
+        if (strNum.isEmpty()) {
             return false;
         } else if (strNum.equals(".")) {
             return true;

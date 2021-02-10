@@ -31,18 +31,25 @@ public class InfixCrater {
         StringBuilder s = new StringBuilder();
         int i;
 
-        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
+        OperatorsCharacteristics operatorsCharacteristics = new OperatorsCharacteristics();
 
         for (i = 0; i < characterArrayList.size(); i++) {
+            //if operand is detected
             if (operatorsCharacteristics.isNumeric(Character.toString(characterArrayList.get(i)))) {
                 s.append(characterArrayList.get(i));
-
-            } else {
+            }
+            //if bracket is detected
+            else if(characterArrayList.get(i) == '(' || characterArrayList.get(i) == ')'){
+                infix.add(String.valueOf(characterArrayList.get(i)));
+            }
+            //if operator is detected
+            else{
                 infix.add(s.toString());
                 s = new StringBuilder();
                 infix.add(String.valueOf(characterArrayList.get(i)));
 
             }
+
         }
         for (int j = i + 1; j < characterArrayList.size(); j++) {
             s = s.append(characterArrayList.get(j).toString());

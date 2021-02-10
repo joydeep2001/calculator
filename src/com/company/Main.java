@@ -10,7 +10,7 @@ public class Main {
 
         ArrayList<String> inputs = new ArrayList<String>();
         inputs.add("2");
-        //inputs.add(".");
+        inputs.add(".");
         inputs.add("5");
         inputs.add("+");
         inputs.add("3");

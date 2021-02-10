@@ -2,13 +2,13 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
+
 import java.util.Stack;
 
 public class OperatorsCharacteristics {
 
-    private HashMap<String, Integer> precedence_Map = new HashMap<String, Integer>();
-    private HashMap<String, Character> associativity_Map = new HashMap<String, Character>();
+    private final HashMap<String, Integer> precedence_Map = new HashMap<String, Integer>();
+    private final HashMap<String, Character> associativity_Map = new HashMap<String, Character>();
 
     int x;
 
@@ -19,12 +19,15 @@ public class OperatorsCharacteristics {
     private void createMaps() {
 
         //For Precedence Map Initialization
+        precedence_Map.put("^", 3);
         precedence_Map.put("/", 2);
         precedence_Map.put("*", 2);
         precedence_Map.put("-", 1);
         precedence_Map.put("+", 1);
 
         //For Associativity Map Initialization
+        //'R' for RIGHT TO LEFT and 'L' for LEFT TO RIGHT
+        associativity_Map.put("^", 'R');
         associativity_Map.put("/", 'L');
         associativity_Map.put("*", 'L');
         associativity_Map.put("-", 'L');
@@ -112,6 +115,9 @@ public class OperatorsCharacteristics {
                 break;
             case "/":
                 result = v1 / v2;
+                break;
+            case "^":
+                result = Math.pow(v1, v2);
                 break;
             default:
                 System.out.println("Exception");

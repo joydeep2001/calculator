@@ -22,7 +22,7 @@ public class Main {
         inputs.add('(');
         inputs.add('3');
         inputs.add('*');
-        inputs.add('3');
+        inputs.add('2');
         inputs.add(')');
         inputs.add('/');
         inputs.add('4');

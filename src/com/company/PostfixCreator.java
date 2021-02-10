@@ -38,7 +38,6 @@ class PosixCreator {
 
         for (int i = 0;i < infix.size();i++) {
             val = infix.get(i);
-            if(val.isEmpty()) continue;
             System.out.println("val "+val);
             if (operatorsCharacteristics.isNumeric(val)) {
                 postfix.add(val);

@@ -38,8 +38,15 @@ public class InfixCrater {
             if (operatorsCharacteristics.isNumeric(Character.toString(characterArrayList.get(i)))) {
                 s.append(characterArrayList.get(i));
             }
-            //if bracket is detected
-            else if(characterArrayList.get(i) == '(' || characterArrayList.get(i) == ')'){
+            //if a bracket detected
+            else if(characterArrayList.get(i) != '(' || characterArrayList.get(i) != ')'){
+                //if s.lenght is non zero then there must be a number in it,
+                // so add it first into infix
+                if(s.length() != 0){
+                    infix.add(s.toString());
+                    s = new StringBuilder();
+                }
+
                 infix.add(String.valueOf(characterArrayList.get(i)));
             }
             //if operator is detected

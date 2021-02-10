@@ -59,6 +59,9 @@ public class OperatorsCharacteristics {
         if (strNum == null) {
             return false;
         }
+        else if(strNum == "."){
+            return true;
+        }
         try {
             double d = Double.parseDouble(strNum);
         } catch (NumberFormatException nfe) {
@@ -77,6 +80,7 @@ public class OperatorsCharacteristics {
         int size=postfix.size();
 
         for (i=0;i<size;i++) {
+            System.out.println(postfix.get(i));
             if(isNumeric(postfix.get(i))){
                 stack.push(postfix.get(i));
             }
@@ -86,9 +90,6 @@ public class OperatorsCharacteristics {
                 String operand1 = stack.pop();
                 String result=calculate(operand1, operand2, operator);
                 stack.push(result);
-
-
-                System.out.println(postfix.get(i-1));
 //
 
             }

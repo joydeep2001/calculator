@@ -59,7 +59,8 @@ public class OperatorsCharacteristics {
         if (strNum == null) {
             return false;
         }
-        else if(strNum == "."){
+        else if(strNum.equals(".")){
+            System.out.println("point ditected");
             return true;
         }
         try {

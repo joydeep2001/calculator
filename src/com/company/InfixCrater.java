@@ -31,8 +31,11 @@ public class InfixCrater {
         StringBuilder s = new StringBuilder();
         int i;
 
+        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
+
         for (i = 0; i < characterArrayList.size(); i++) {
-            if (Character.isDigit(characterArrayList.get(i))) {
+            System.out.println("out output" +Character.toString(characterArrayList.get(i)));
+            if (operatorsCharacteristics.isNumeric(Character.toString(characterArrayList.get(i)))) {
                 s.append(characterArrayList.get(i));
 
             } else {

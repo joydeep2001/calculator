@@ -10,7 +10,7 @@ class PosixCreator {
     private ArrayList<String> postfix = new ArrayList<>();
 
     private Stack<String> stack = new Stack<String>();
-    private  String value;
+
 
     /*-----Constructor---*/
 
@@ -33,14 +33,14 @@ class PosixCreator {
     public ArrayList<String> postfixGen() {
 
         OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
-        value = "";
+
         for (String val : infix) {
 
             if (operatorsCharacteristics.isNumeric(val)) {
-                value += val;
-                postfix.add(value);
+
+                postfix.add(val);
             } else {
-                value = "";
+
                 if (stack.empty()) {
                     stack.push(val);
                 } else {

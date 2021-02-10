@@ -8,40 +8,59 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<String> inputs = new ArrayList<String>();
-        inputs.add("2");
-        inputs.add(".");
-        inputs.add("5");
-        inputs.add("+");
-        inputs.add("3");
-        inputs.add("*");
-        inputs.add("4");
-        inputs.add("^");
-        inputs.add("2");
-        inputs.add("^");
-        inputs.add("3");
+        ArrayList<Character> inputs = new ArrayList<Character>();
+        inputs.add('2');
+        inputs.add('.');
+        inputs.add('3');
+        inputs.add('+');
+        inputs.add('2');
+        inputs.add('4');
+        inputs.add('*');
+        inputs.add('2');
+        inputs.add('2');
+//        inputs.add("2");
+////        inputs.add(".");
+//        inputs.add("5");
+//        inputs.add("+");
+//        inputs.add("3");
+//        inputs.add("3");
+//        inputs.add("*");
+//        inputs.add("4");
+//        inputs.add("^");
+//        inputs.add("2");
+
+
 
 
         System.out.println("The Input Expression Is:: ");
 
-        for (String val : inputs) {
+        for (Character val : inputs) {
             System.out.print(val);
         }
         System.out.println();
 
-        PosixCreator posixCreator=new PosixCreator();
-        posixCreator.setInfix(inputs);
-        ArrayList<String> list = posixCreator.postfixGen();
+        InfixCrater infixCrater=new InfixCrater();
+        infixCrater.setInputArray(inputs);
+        ArrayList<String> list=infixCrater.infixGen();
 
         for (String val : list) {
-            System.out.print(val);
+            System.out.println(val);
         }
-        System.out.println();
+
+
+
+        PosixCreator posixCreator=new PosixCreator();
+        posixCreator.setInfix(list);
+        ArrayList<String> postfix = posixCreator.postfixGen();
+
+        for (String val : postfix) {
+            System.out.println(val);
+        }
 
         OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
 
 
-        System.out.println(operatorsCharacteristics.evaluate(list));
+        System.out.println(operatorsCharacteristics.evaluate(postfix));
 
 
     }

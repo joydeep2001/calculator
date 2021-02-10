@@ -19,11 +19,13 @@ public class OperatorsCharacteristics {
     private void createMaps() {
 
         //For Precedence Map Initialization
+        precedence_Map.put("(", 4);
         precedence_Map.put("^", 3);
         precedence_Map.put("/", 2);
         precedence_Map.put("*", 2);
         precedence_Map.put("-", 1);
         precedence_Map.put("+", 1);
+        precedence_Map.put(")", 0);
 
         //For Associativity Map Initialization
         //'R' for RIGHT TO LEFT and 'L' for LEFT TO RIGHT
@@ -58,8 +60,7 @@ public class OperatorsCharacteristics {
     public boolean isNumeric(String strNum) {
         if (strNum == null) {
             return false;
-        }
-        else if(strNum.equals(".")){
+        } else if (strNum.equals(".")) {
             return true;
         }
         try {
@@ -77,17 +78,16 @@ public class OperatorsCharacteristics {
         int i;
         Stack<String> stack = new Stack<String>();
 
-        int size=postfix.size();
+        int size = postfix.size();
 
-        for (i=0;i<size;i++) {
-            if(isNumeric(postfix.get(i))){
+        for (i = 0; i < size; i++) {
+            if (isNumeric(postfix.get(i))) {
                 stack.push(postfix.get(i));
-            }
-            else{
+            } else {
                 String operator = postfix.get(i);
                 String operand2 = stack.pop();
                 String operand1 = stack.pop();
-                String result=calculate(operand1, operand2, operator);
+                String result = calculate(operand1, operand2, operator);
                 stack.push(result);
 //
 
@@ -100,7 +100,7 @@ public class OperatorsCharacteristics {
     private String calculate(String operand1, String operand2, String operator) {
         double v1 = Double.parseDouble(operand1);
         double v2 = Double.parseDouble(operand2);
-        double result=0;
+        double result = 0;
 
         switch (operator) {
             case "+":

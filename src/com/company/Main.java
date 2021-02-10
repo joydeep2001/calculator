@@ -19,23 +19,17 @@ public class Main {
         inputs.add('^');
         inputs.add('2');
         inputs.add('^');
+//        inputs.add('(');
         inputs.add('3');
         inputs.add('*');
         inputs.add('3');
+//        inputs.add(')');
         inputs.add('3');
         inputs.add('/');
         inputs.add('4');
         inputs.add('3');
-//        inputs.add("2");
-////        inputs.add(".");
-//        inputs.add("5");
-//        inputs.add("+");
-//        inputs.add("3");
-//        inputs.add("3");
-//        inputs.add("*");
-//        inputs.add("4");
-//        inputs.add("^");
-//        inputs.add("2");
+
+
 
 
 
@@ -67,7 +61,7 @@ public class Main {
             System.out.print(val);
         }
         System.out.println();
-
+//
 
         OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
 

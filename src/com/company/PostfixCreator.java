@@ -11,6 +11,9 @@ class PosixCreator {
 
     private Stack<String> stack = new Stack<String>();
 
+    OperatorsCharacteristics operatorsCharacteristics = new OperatorsCharacteristics();
+
+
 
     /*-----Constructor---*/
 
@@ -32,7 +35,6 @@ class PosixCreator {
 
     public ArrayList<String> postfixGen() {
 
-        OperatorsCharacteristics operatorsCharacteristics=new OperatorsCharacteristics();
 
         for (String val : infix) {
 
@@ -45,19 +47,19 @@ class PosixCreator {
                     stack.push(val);
                 } else {
 
+
                     if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
-                        String x = stack.pop();
-                        postfix.add(x);
+                        move_operators_to_postfix_until_lower_precidence_occur(val);
+//                        String x = stack.pop();
+//                        postfix.add(x);
                         stack.push(val);
                     } else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'H') {
                         stack.push(val);
                     } else {
-                            if(operatorsCharacteristics.checkAssociativity(val)=='R')
-                        {
+                        if (operatorsCharacteristics.checkAssociativity(val) == 'R') {
                             stack.push(val);
-                        }
-                        else {
-                            String x=stack.pop();
+                        } else {
+                            String x = stack.pop();
                             postfix.add(x);
                             stack.push(val);
                         }
@@ -67,12 +69,21 @@ class PosixCreator {
             }
 
         }
-        while (!stack.empty())
-        {
+        while (!stack.empty()) {
             postfix.add(stack.pop());
         }
 
         return postfix;
+    }
+
+    private void move_operators_to_postfix_until_lower_precidence_occur(String val) {
+        while (operatorsCharacteristics.checkPrecedence(val,stack.peek())== 'L') {
+
+            String x=stack.pop();
+            postfix.add(x);
+
+        }
+
     }
 
 }

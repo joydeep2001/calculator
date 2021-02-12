@@ -38,47 +38,58 @@ class PosixCreator {
 
         for (int i = 0;i < infix.size();i++) {
             val = infix.get(i);
-            System.out.println("val "+val);
+
+            //System.out.println("val "+val);
             if (operatorsCharacteristics.isNumeric(val)) {
                 postfix.add(val);
-            } else {
-
-                if (stack.empty()) {
-                    stack.push(val);
-                } else {
-
-                    if(val.equals("(")){
-                        stack.push(val);
-                    }
-                    else if(val.equals(")")){
-                        System.out.println("here");
-                        //adding the content up to opening bracket found
-                        while (!stack.peek().equals("(")){
-                            String temp = stack.pop();
-                            postfix.add(temp);
-                        }
-                        //for removing the "(" from the stack
-                        stack.pop();
-                    }
-
-                    else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
-
-                        move_operators_to_postfix_until_lower_precidence_occur(val);
-                        stack.push(val);
-                    } else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'H') {
-                        stack.push(val);
-                    } else {
-                        if (operatorsCharacteristics.checkAssociativity(val) == 'R') {
-                            stack.push(val);
-                        } else {
-                            String x = stack.pop();
-                            postfix.add(x);
-                            stack.push(val);
-                        }
-
-                    }
-                }
             }
+
+            else if (stack.empty()) {
+                System.out.println("Empty stack");
+                stack.push(val);
+            }
+
+            else if(val.equals("(")){
+                    stack.push(val);
+            }
+
+            else if(val.equals(")")){
+                System.out.println("here");
+                //adding the content up to opening bracket found
+                while (!stack.peek().equals("(")){
+                    String temp = stack.pop();
+                    postfix.add(temp);
+                    System.out.println("Popped: " + temp);
+                }
+                //for removing the "(" from the stack
+                System.out.println("Popped bracket" + stack.pop());
+
+                }
+
+            else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
+
+                move_operators_to_postfix_until_lower_precidence_occur(val);
+                stack.push(val);
+            }
+
+            else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'H') {
+                stack.push(val);
+            }
+
+            else if(operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'b'){
+                stack.push(val);
+            }
+
+            else if (operatorsCharacteristics.checkAssociativity(val) == 'R') {
+                    stack.push(val);
+            }
+
+            else {
+                String x = stack.pop();
+                postfix.add(x);
+                stack.push(val);
+            }
+            System.out.println(val);
 
         }
         while (!stack.empty()) {
@@ -89,11 +100,12 @@ class PosixCreator {
     }
 
     private void move_operators_to_postfix_until_lower_precidence_occur(String val) {
-        while (operatorsCharacteristics.checkPrecedence(val,stack.peek())== 'L') {
-
-            String x=stack.pop();
-            postfix.add(x);
-
+        while (!stack.empty()) {
+            if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
+                String x = stack.pop();
+                postfix.add(x);
+            }
+            else break;
         }
 
     }

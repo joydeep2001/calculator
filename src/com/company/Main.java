@@ -9,11 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Character> inputs = new ArrayList<Character>();
+        inputs.add('(');
         inputs.add('2');
         inputs.add('.');
         inputs.add('5');
         inputs.add('+');
         inputs.add('3');
+        inputs.add(')');
         inputs.add('*');
         inputs.add('4');
         inputs.add('^');
@@ -21,7 +23,7 @@ public class Main {
         inputs.add('+');
         inputs.add('(');
         inputs.add('3');
-        inputs.add('*');
+        inputs.add('-');
         inputs.add('2');
         inputs.add('*');
         inputs.add('(');
@@ -60,7 +62,7 @@ public class Main {
         ArrayList<String> postfix = posixCreator.postfixGen();
 
         for (String val : postfix) {
-            System.out.print(val);
+            System.out.print(val +" ");
         }
         System.out.println();
 //

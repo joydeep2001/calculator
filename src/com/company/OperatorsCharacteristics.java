@@ -25,7 +25,7 @@ public class OperatorsCharacteristics {
         precedence_Map.put("*", 2);
         precedence_Map.put("-", 1);
         precedence_Map.put("+", 1);
-        precedence_Map.put("(", 0);
+
 
 
         //For Associativity Map Initialization
@@ -39,6 +39,8 @@ public class OperatorsCharacteristics {
 
     /*-----Checks Precedence------*/
     public char checkPrecedence(String input, String stack_top) {
+
+        if(stack_top.equals("(") || input.equals("(")) return 'b';
 
         int p1 = precedence_Map.get(input);
         int p2 = precedence_Map.get(stack_top);

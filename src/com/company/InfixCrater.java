@@ -44,7 +44,9 @@ public class InfixCrater {
                 // so add it first into infix
                 if(s.length() != 0){
                     infix.add(s.toString());
+
                     s = new StringBuilder();
+
                 }
 
                 infix.add(String.valueOf(characterArrayList.get(i)));
@@ -61,7 +63,9 @@ public class InfixCrater {
         for (int j = i + 1; j < characterArrayList.size(); j++) {
             s = s.append(characterArrayList.get(j).toString());
         }
-        infix.add(s.toString());
+        if(s.length() > 0) {
+            infix.add(s.toString());
+        }
 
         return infix;
     }

@@ -20,38 +20,39 @@ public class Main {
             String exp = "";
             System.out.print("Enter a expression: ");
             exp = scanner.nextLine();
-            System.out.println(exp);
+
 
             for (int i = 0; i < exp.length(); i++) {
                 inputs.add(exp.charAt(i));
             }
-
-            //        inputs.add('(');
-            //        inputs.add('2');
-            //        inputs.add('.');
-            //        inputs.add('5');
-            //        inputs.add('+');
-            //        inputs.add('3');
-            //        inputs.add(')');
-            //        inputs.add('*');
-            //        inputs.add('4');
-            //        inputs.add('^');
-            //        inputs.add('2');
-            //        inputs.add('+');
-            //        inputs.add('(');
-            //        inputs.add('3');
-            //        inputs.add('-');
-            //        inputs.add('2');
-            //        inputs.add('*');
-            //        inputs.add('(');
-            //        inputs.add('5');
-            //        inputs.add('*');
-            //        inputs.add('2');
-            //        inputs.add(')');
-            //        inputs.add(')');
-            //        inputs.add('/');
-            //        inputs.add('4');
-            //        inputs.add('3');
+//                    inputs.add('(');
+//                    inputs.add('(');
+//                    inputs.add('2');
+//                    inputs.add('.');
+//                    inputs.add('5');
+//                    inputs.add('+');
+//                    inputs.add('3');
+//                    inputs.add(')');
+//                    inputs.add('*');
+//                    inputs.add('4');
+//                    inputs.add('^');
+//                    inputs.add('2');
+//                    inputs.add('+');
+//                    inputs.add('(');
+//                    inputs.add('3');
+//                    inputs.add('-');
+//                    inputs.add('2');
+//                    inputs.add('*');
+//                    inputs.add('(');
+//                    inputs.add('5');
+//                    inputs.add('*');
+//                    inputs.add('2');
+//                    inputs.add(')');
+//                    inputs.add(')');
+//                    inputs.add('/');
+//                    inputs.add('4');
+//                    inputs.add('3');
+//                    inputs.add(')');
 
 
             //infix

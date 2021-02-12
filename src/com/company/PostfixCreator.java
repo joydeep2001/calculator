@@ -39,7 +39,8 @@ class PosixCreator {
         for (String s : infix) {
             val = s;
 
-            //System.out.println("val "+val);
+            System.out.println("val "+val);
+
             if (operatorsCharacteristics.isNumeric(val)) {
                 postfix.add(val);
             } else if (stack.empty()) {
@@ -56,7 +57,8 @@ class PosixCreator {
                     //System.out.println("Popped: " + temp);
                 }
                 //for removing the "(" from the stack
-                //System.out.println("Popped bracket" + stack.pop());
+                //stack.pop();
+                System.out.println("Popped bracket" + stack.pop());
 
             } else if (operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'L') {
 
@@ -69,8 +71,7 @@ class PosixCreator {
             } else if (operatorsCharacteristics.checkAssociativity(val) == 'R') {
                 stack.push(val);
             } else if(operatorsCharacteristics.checkAssociativity(val) == 'L') {
-                String x = stack.pop();
-                postfix.add(x);
+                move_operators_to_postfix_until_lower_precedence_occur(val);
                 stack.push(val);
             } else {
                 System.out.println("undefined state: Error on line 80 :: PostfixCreater class");
@@ -93,7 +94,11 @@ class PosixCreator {
                 String x = stack.pop();
                 postfix.add(x);
             }
+            else if(operatorsCharacteristics.checkPrecedence(val, stack.peek()) == 'E'){
+                String x = stack.pop();
+                postfix.add(x);
 
+            }
             else {
                 break;
             }

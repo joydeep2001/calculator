@@ -54,7 +54,7 @@ public class OperatorsCharacteristics {
 
     /*-----Checks Associativity---*/
     public char checkAssociativity(String input) {
-
+        if(input.equals("(")) return 'b';
         return associativity_Map.get(input);
 
     }
